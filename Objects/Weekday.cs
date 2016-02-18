@@ -13,7 +13,7 @@ namespace WeekdayFinder
       int totalDays = 0;
 
       int startDay = 1;
-      int startMonth = 1;
+
       int startYear = 1970;
 
       int numberOfLeapDays = 0;
@@ -32,13 +32,16 @@ namespace WeekdayFinder
         totalMonthDays += daysInMonths[i];
       }
       int totalWeekDays = (inputDay - startDay);
-
-      numberOfLeapDays = ((totalYears -2) / 4) + 1;
-
+      if (inputYear % 4 == 0 && (month == 1 || month == 2))
+      {
+        numberOfLeapDays = ((totalYears -2) / 4);
+      } else {
+          numberOfLeapDays = ((totalYears -2) / 4) + 1;
+      }
       totalDays = totalYearDays + totalMonthDays + totalWeekDays + numberOfLeapDays;
 
       int dayOfWeek = totalDays % daysInWeek;
-      string outputDay;
+      string outputDay = "";
       if (dayOfWeek == 0)
       {
         outputDay = "Thursday";
@@ -59,6 +62,19 @@ namespace WeekdayFinder
       {
         outputDay = "Monday";
       }
+      else if (dayOfWeek == 5)
+      {
+        outputDay = "Tuesday";
+      }
+      else if (dayOfWeek == 6)
+      {
+        outputDay = "Wednesday";
+      }
+      return outputDay;
     }
   }
+
+Weekday newFUCK = new Weekday();
+ string day = newFUCK.FindWeekday(18, 2, 2016);
+
 }
