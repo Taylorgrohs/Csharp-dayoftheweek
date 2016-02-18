@@ -73,8 +73,4 @@ namespace WeekdayFinder
       return outputDay;
     }
   }
-
-Weekday newFUCK = new Weekday();
- string day = newFUCK.FindWeekday(18, 2, 2016);
-
 }
